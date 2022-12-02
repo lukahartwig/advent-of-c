@@ -3,15 +3,15 @@
 
 int main(void)
 {
-    FILE *fp;
-    char *line = NULL;
-    size_t len = 0;
-
     int calories;
     int tmp_sum = 0;
     int total_sum = 0;
     int max[3] = {0, 0, 0};
     int tmp = 0;
+
+    FILE *fp;
+    char *line = NULL;
+    size_t len = 0;
 
     fp = fopen("input.txt", "r");
 

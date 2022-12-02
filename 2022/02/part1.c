@@ -3,12 +3,12 @@
 
 int main(void)
 {
+    char a, b;
+    int sum = 0;
+
     FILE *fp;
     char *line = NULL;
     size_t len = 0;
-
-    char a, b;
-    int sum = 0;
 
     fp = fopen("input.txt", "r");
 
