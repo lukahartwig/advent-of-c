@@ -142,20 +142,18 @@ void handle_command(cmd *command, node_t **cwd)
     }
 }
 
-static size_t result = 0;
-
-size_t get_total_size(node_t *node)
+long get_total_size(node_t *node)
 {
-    size_t size = node->size;
+    long size = node->size;
 
     for (node_t *child = node->child; child != NULL; child = child->sibling)
     {
         size += get_total_size(child);
     }
 
-    if (node->size == 0 && 0 < size && size <= 100000)
+    if (node->size == 0 && ((size - 4804833) > 0))
     {
-        result += size;
+        printf("%ld\n", size);
     }
 
     return size;
@@ -194,9 +192,8 @@ int main(void)
         }
     }
 
-    get_total_size(root);
-
-    printf("%zu\n", result);
+    long total_size = get_total_size(root);
+    long needed_space = 30000000 - (70000000 - total_size);
 
     return 0;
 }
